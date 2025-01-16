@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investor Relations</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+  integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #e63946;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: #e63946;
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .card-body h3 {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-body p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    .card-body a {
+      display: inline-block;
+      text-decoration: none;
+      color: #e63946;
+      font-weight: 500;
+      margin-top: 1rem;
+      transition: color 0.3s;
+    }
+
+    .card-body a:hover {
+      color: #d62828;
+    }
+
+  
+    
+.hero-section{
+    background: url(images/heroSectionBackground.png);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    min-height: 60vh;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 16px 48px;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-menu-container{
+    display: flex;
+    gap:20px;
+}
+
+.navbar-menu-container .user-icon{
+    height: 30px;
+    width: 30px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: solid 1px white;
+    display: none;
+}
+
+.hero-section-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    height: calc(60vh - 60px);
+}
+
+.hero-section-logo{
+    width: 220px;
+    height: auto
+}
+
+.hero-section-title{
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.hero-section-input-container{
+    background-color: white;
+    padding:10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    gap: 10px;
+    width: 60%;
+    border-radius: 20px;
+    flex-direction: row;
+}
+.input-container-location,
+.input-container-search {
+    padding: 10px; /* Increase padding for better touch support */
+    border: none;
+    outline: none;
+    font-size: 16px; /* Improve readability */
+    border-radius: 5px; /* Rounded corners */
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.input-container-location {
+    width: 35%;
+    border-right: 1px solid #e0e0e0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: #f9f9f9; /* Subtle background */
+}
+
+.input-container-search {
+    width: 65%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #ffffff; /* Distinct background */
+}
+
+/* Hover and Focus Effects */
+.input-container-location:focus,
+.input-container-search:focus {
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Focus shadow effect */
+}
+
+/* Container Styling */
+.input-wrapper {
+    display: flex;
+    max-width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card-like shadow */
+    border-radius: 5px;
+    overflow: hidden; /* Ensures rounded corners */
+    margin: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .input-container-location {
+        width: 40%; /* Adjust for smaller screens */
+        font-size: 14px; /* Slightly smaller text */
+    }
+
+    .input-container-search {
+        width: 60%; /* Adjust for smaller screens */
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .input-container-location,
+    .input-container-search {
+        width: 100%; /* Stack inputs for mobile */
+        border-radius: 5px; /* Remove split look */
+        margin-bottom: 10px; /* Add spacing between inputs */
+    }
+
+    .input-wrapper {
+        flex-direction: column; /* Vertical stacking for small screens */
+    }
+}
+
+
+.footer{
+    width: 100%;
+    background-color: white;
+}
+
+.footer-section1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+}
+
+.footer-section1 img{
+    width: 120px;
+}
+
+.section1-buttoncontainer{
+    display: flex;
+    gap: 1rem;
+}
+
+.section1-buttoncontainer button{
+    padding: 5px 5px;
+    width: 90px;
+    border: 1px solid grey;
+    background-color: transparent;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    cursor: pointer;
+}
+
+.navigation-container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 90%;
+    margin: auto;
+    gap: 1rem;
+    padding: 3rem 0;
+}
+
+
+.link-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.link-container h5{
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 5px;
+    letter-spacing: 0.8px;
+
+}
+
+.footer-link{
+    text-decoration: none;
+    color: grey;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.footer-link:hover{
+    color: black;
+}
+
+
+.social-links-container{
+    display: flex;
+    gap: 0.5rem;
+
+}
+
+.social-links-container button{
+    background-color: black;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.social-links-container button i{
+    color: white;
+    font-size: 13px;
+}
+
+.footer-section-logo{
+    width: 100%;
+}
+
+.disclaimer{
+    width: 90%;
+    margin: auto;
+    color: grey;
+    font-size: 12px;
+    border-top: 1px solid grey;
+    padding-top: 2rem;
+}
+
+@media only screen and (max-width: 900px){
+    .navigation-container{
+        grid-template-columns: repeat(3,1fr);
+    }
+
+
+
+}
+
+@media only screen and (max-width: 600px){
+    .navigation-container{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+
+}
+
+@media only screen and (max-width: 450px){
+    .navigation-container{
+        grid-template-columns: repeat(1,1fr);
+    }
+
+
+
+}
+
+
+@media only screen and (max-width: 600px){
+    .navbar-menu-container a{
+        display: none;
+    }
+
+    .navbar-menu-container .user-icon{
+        display: flex;
+    }
+
+    .navbar{
+        padding: 16px 16px;
+    }
+
+    .hero-section{
+        min-height: 80vh;
+    }
+
+    .hero-section-input-container{
+        flex-direction: column;
+        background-color: transparent;
+        width:100%;
+    }
+
+    .input-container-search , .input-container-location{
+        padding:15px;
+        border-radius: 10px;
+        width:95%;
+    }
+
+    .hero-section-container{
+        min-height: calc(80vh - 60px);
+    }
+
+    .hero-section-title{
+        font-size: 20px;
+        width: 95%;
+    }
+
+}
+
+@media only screen and (max-width: 1300px){
+
+.get-the-app .semiContainer .left, .get-the-app .semiContainer .right{
+    flex: 1;
+}
+
+.get-the-app .semiContainer{
+    width: 80%;
+}
+}
+
+@media only screen and (max-width: 900px){
+
+.get-the-app{
+    padding: 2rem;
+ }
+
+.get-the-app .semiContainer{
+    width: 90%;
+}
+}
+
+@media only screen and (max-width: 700px){
+
+.get-the-app{
+    padding: 3rem 0;
+}
+
+.get-the-app .input-container{
+    flex-direction: column;
+}
+
+.get-the-app .semiContainer{
+    width: 80%;
+    flex-direction: column;
+}
+
+}
+
+  </style>
+</head>
+<body>
+    
+    <section class="hero-section">
+        <header>
+            <nav class="navbar">
+                <a href="#">Get the App</a>
+                <div class="navbar-menu-container">
+                    <a href="#" class="link">Inventor Relations</a>
+                    <a href="#" class="link">Add Restaurant</a>
+                    <a href="login.html" class="link">Login</a>
+                    <a href="sigin.html" class="link">Sign Up</a>
+                    <a href="
+                    #" class="user-icon">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <div class="hero-section-container">
+            <img src="images/heroSectionLogo.png" alt="Zomato Logo" class="hero-section-logo">
+
+            <h1 class="hero-section-title">Discover the Best Food and Drinks in coimbatore,TamilNadu</h1>
+            <div class="hero-section-input-container">
+                <input class="input-container-location" type="text" placeholder="Near New Bustop">
+
+                <input class="input-container-search" type="text"
+                    placeholder="Search for a restaurant, cusine or a dish">
+            </div>
+        </div>
+
+    </section>
+  <!-- Header Section -->
+  <header>
+    <h1>Investor Relations</h1>
+    <p>Stay updated with our financial reports, policies, and governance practices.</p>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h2 class="section-title">Key Information</h2>
+    <div class="grid">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="images/finical.jpg" alt="Financial Reports">
+        <div class="card-body">
+          <h3>Financial Reports</h3>
+          <p>Download the latest quarterly and annual financial reports.</p>
+          <a href="#">View Reports →</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="images/corporate.jpeg" alt="Corporate Governance">
+        <div class="card-body">
+          <h3>Corporate Governance</h3>
+          <p>Learn about our policies and governance framework.</p>
+          <a href="#">Explore Governance →</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="images/investor.jpg" alt="Investor Presentations">
+        <div class="card-body">
+          <h3>Investor Presentations</h3>
+          <p>Access our latest investor presentations and updates.</p>
+          <a href="#">View Presentations →</a>
+        </div>
+      </div>
+
+     
+            <!-- Additional Cards -->
+      <!-- Card 5 -->
+      <div class="card">
+        <img src="images/Stock Information.jpg" alt="Stock Information">
+        <div class="card-body">
+          <h3>Stock Information</h3>
+          <p>Access real-time stock prices and historical performance data.</p>
+          <a href="#">View Stock Data →</a>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="card">
+        <img src="images/ESG.jpg" alt="ESG Initiatives">
+        <div class="card-body">
+          <h3>ESG Initiatives</h3>
+          <p>Learn about our commitment to environmental, social, and governance practices.</p>
+          <a href="#">Discover ESG Efforts →</a>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="card">
+        <img src="images/Annual.jpg" alt="Annual General Meeting">
+        <div class="card-body">
+          <h3>Annual General Meeting</h3>
+          <p>Find details on our upcoming AGM and previous meeting minutes.</p>
+          <a href="#">View AGM Details →</a>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="card">
+        <img src="images/media.jpg" alt="Media Releases">
+        <div class="card-body">
+          <h3>Media Releases</h3>
+          <p>Browse our latest media releases and announcements.</p>
+          <a href="#">Explore Media Releases →</a>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="card">
+        <img src="images/Dividend.jpg" alt="Dividend Policy">
+        <div class="card-body">
+          <h3>Dividend Policy</h3>
+          <p>Understand our dividend distribution policy and historical payouts.</p>
+          <a href="#">View Policy →</a>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="card">
+        <img src="images/FAQs.jpg" alt="Investor FAQs">
+        <div class="card-body">
+          <h3>Investor FAQs</h3>
+          <p>Find answers to frequently asked questions by our investors.</p>
+          <a href="#">View FAQs →</a>
+        </div>
+      </div>
+ <!-- Card 4 -->
+ <div class="card">
+    <img src="images/cont.jpg" alt="Contact Us">
+    <div class="card-body">
+      <h3>Contact Us</h3>
+      <p>Have questions? Get in touch with our investor relations team.</p>
+      <a href="#">Get in Touch →</a>
+    </div>
+  </div>
+    </div>
+    
+  </div>
+
+  <!-- Footer Section -->
+ 
+  <footer class="container footer">
+    <div class="footer-section1">
+        <img src="images/logo.png" alt="">
+        <div class="section1-buttoncontainer">
+            <button>
+                <img src="https://flagcdn.com/w40/in.png" alt="indian flag" style="width:17px">India
+            </button>
+            <button><i class="fa fa-globe"></i>English</button>
+        </div>
+    </div>
+    <div class="navigation-container">
+        <div class="link-container">
+            <h5>ABOUT ZOMATO</h5>
+            <a href="#" class="footer-link">Who we are</a>
+            <a href="#" class="footer-link">Blogs</a>
+            <a href="#" class="footer-link">Work with us</a>
+            <a href="#" class="footer-link">Investor Relation</a>
+            <a href="#" class="footer-link">Report Fraud</a>
+        </div>
+
+        <div class="link-container">
+            <h5>ZOMAVERSE</h5>
+
+            <a href="#" class="footer-link">Zomato</a>
+            <a href="#" class="footer-link">Feeding India</a>
+            <a href="#" class="footer-link">Hyperpure</a>
+            <a href="#" class="footer-link">Zomaland</a>
+
+        </div>
+
+        <div class="link-container">
+            <h5>FOR RESTAURANTS</h5>
+            <a href="#" class="footer-link">Partner With Us</a>
+            <a href="#" class="footer-link">Apps for You</a>
+            <br />
+            <h5>FOR ENTERPRISES</h5>
+            <a href="#" class="footer-link">Zomato For Work</a>
+
+        </div>
+
+        <div class="link-container">
+            <h5>Learn More</h5>
+
+            <a href="#" class="footer-link">Privacy</a>
+            <a href="#" class="footer-link">Security</a>
+            <a href="#" class="footer-link">Terms</a>
+            <a href="#" class="footer-link">SiteMap</a>
+
+
+        </div>
+
+        <div class="link-container">
+            <h5>SOCIAL LINKS</h5>
+            <div class="social-links-container">
+                <button><i class="fa-brands fa-linkedin-in"></i></button>
+                <button><i class="fa-brands fa-instagram"></i></button>
+                <button><i class="fa-brands fa-twitter"></i></button>
+                <button><i class="fa-brands fa-youtube"></i></button>
+                <button><i class="fa-brands fa-facebook"></i></button>
+            </div>
+            <br>
+            <img src="images/appleStore.png" alt="footer appstore logo" class="footer-section-logos">
+            <img src="images/playStore.png" alt="footer playstore logo" class="footer-section-logos">
+        </div>
+
+
+
+    </div>
+
+    <div class="disclaimer">
+        By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content
+        Policies. All trademarks are properties of their respective owners. 2008-2023 © Zomato™ Pvt Ltd. All rights
+        reserved. <br>
+        <p style="text-align: center; padding-top: 10px;"> Desgined And Developed by  <strong style="color: blue;">TechSquad Team </strong>
+        </p>
+    <div class="disclamier" style="margin-top: 10px; text-align: center;padding: 10px;">
+    </div>
+
+</footer>
+</body>
+</html>

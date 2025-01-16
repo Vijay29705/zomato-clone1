@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Add Restaurant</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .container header {
+      background: #e63946;
+      color: #fff;
+      font-size: 1.8rem;
+      font-weight: 600;
+      text-align: center;
+      padding: 1.5rem 1rem;
+    }
+
+    .form {
+      padding: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #444;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.9rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      outline: none;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: #e63946;
+      box-shadow: 0 0 10px rgba(230, 57, 70, 0.4);
+    }
+
+    .form-group textarea {
+      height: 100px;
+      resize: none;
+    }
+
+    .form-group .button {
+      background: linear-gradient(to right, #e63946, #d62828);
+      color: #fff;
+      border: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 0.9rem;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+    }
+
+    .form-group .button:hover {
+      background: #c71f1f;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(230, 57, 70, 0.6);
+    }
+
+    .form-group .button:active {
+      transform: translateY(0);
+      box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 1rem;
+      text-align: center;
+      color: green;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .form {
+        padding: 1.5rem;
+      }
+
+      header {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>Add Your Restaurant</header>
+    <form id="restaurantForm" class="form">
+      <div class="form-group">
+        <label for="restaurantName">Restaurant Name</label>
+        <input type="text" id="restaurantName" placeholder="Enter restaurant name" required>
+      </div>
+      <div class="form-group">
+        <label for="ownerName">Owner's Name</label>
+        <input type="text" id="ownerName" placeholder="Enter owner's name" required>
+      </div>
+      <div class="form-group">
+        <label for="cuisineType">Cuisine Type</label>
+        <select id="cuisineType" required>
+          <option value="" disabled selected>Select cuisine type</option>
+          <option value="Indian">Indian</option>
+          <option value="Chinese">Chinese</option>
+          <option value="Italian">Italian</option>
+          <option value="Mexican">Mexican</option>
+          <option value="Desserts">Desserts</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" placeholder="Enter restaurant location" required>
+      </div>
+      <div class="form-group">
+        <label for="contactNumber">Contact Number</label>
+        <input type="text" id="contactNumber" placeholder="Enter contact number" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" placeholder="Brief description about your restaurant"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="button">Submit</button>
+      </div>
+      <div class="success-message" id="successMessage">
+        Restaurant added successfully!
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('restaurantForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      const restaurantName = document.getElementById('restaurantName').value;
+      const ownerName = document.getElementById('ownerName').value;
+      const cuisineType = document.getElementById('cuisineType').value;
+      const location = document.getElementById('location').value;
+      const contactNumber = document.getElementById('contactNumber').value;
+
+      if (restaurantName && ownerName && cuisineType && location && contactNumber) {
+        document.getElementById('successMessage').style.display = 'block';
+        alert('Thank you for submitting your restaurant details!');
+        document.getElementById('restaurantForm').reset();
+      } else {
+        alert('Please fill out all the required fields.');
+      }
+    });
+  </script>
+</body>
+</html>
